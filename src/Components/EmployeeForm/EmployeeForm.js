@@ -18,10 +18,12 @@ export default function EmployeeForm() {
 
 
     const handleSubmit = () => {
+        let token="Bearer"+" "+localStorage.getItem('token');
         //Enter the correct api
         fetch('/EmployeeForm', {
           method: 'POST',
           headers: {
+               'Authorization':token,
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
