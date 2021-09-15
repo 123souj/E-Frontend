@@ -16,11 +16,13 @@ export default function AttendenceForm() {
 
     let history = useHistory();
     const handleSubmit = () => {
+         let token="Bearer"+" "+localStorage.getItem('token');
        
         //Add the correct API 
         fetch('/Attendence', {
           method: 'POST',
           headers: {
+               'Authorization':token,
            
             Accept: 'application/json',
             'Content-Type': 'application/json',
