@@ -9,7 +9,12 @@ import { Link } from "react-router-dom";
 
 export default function Salary() {
     const [inputEmp, setInputEmp] = useState([]);
-    fetch(`/salary`)
+ let token="Bearer"+" "+localStorage.getItem('token');
+    fetch(`/salary`,{
+     headers:{
+            'Authorization': token
+        }
+    })
     .then((res) => res.json())
          .then(data => {
             setInputEmp(data);
